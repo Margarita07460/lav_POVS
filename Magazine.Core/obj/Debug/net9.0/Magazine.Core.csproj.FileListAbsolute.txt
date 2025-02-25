@@ -9,3 +9,15 @@ C:\Users\Margarita\Desktop\Новая папка\Magazine.Core\obj\Debug\net9.0\
 C:\Users\Margarita\Desktop\Новая папка\Magazine.Core\obj\Debug\net9.0\refint\Magazine.Core.dll
 C:\Users\Margarita\Desktop\Новая папка\Magazine.Core\obj\Debug\net9.0\Magazine.Core.pdb
 C:\Users\Margarita\Desktop\Новая папка\Magazine.Core\obj\Debug\net9.0\ref\Magazine.Core.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Core\bin\Debug\net9.0\Magazine.Core.deps.json
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Core\bin\Debug\net9.0\Magazine.Core.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Core\bin\Debug\net9.0\Magazine.Core.pdb
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Core\obj\Debug\net9.0\Magazine.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Core\obj\Debug\net9.0\Magazine.Core.AssemblyInfoInputs.cache
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Core\obj\Debug\net9.0\Magazine.Core.AssemblyInfo.cs
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Core\obj\Debug\net9.0\Magazine.Core.csproj.CoreCompileInputs.cache
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Core\obj\Debug\net9.0\Magazine.Core.sourcelink.json
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Core\obj\Debug\net9.0\Magazine.Core.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Core\obj\Debug\net9.0\refint\Magazine.Core.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Core\obj\Debug\net9.0\Magazine.Core.pdb
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Core\obj\Debug\net9.0\ref\Magazine.Core.dll

@@ -1,0 +1,135 @@
+{
+  "ca23849e-b570-497a-82b2-ad0fcc0e2f72": {
+    "Id": "ca23849e-b570-497a-82b2-ad0fcc0e2f72",
+    "Name": "PC",
+    "Definition": "---",
+    "Price": 20000,
+    "Image": "string"
+  },
+  "c1c0acac-b947-4c91-9b62-22c4ee2922e8": {
+    "Id": "c1c0acac-b947-4c91-9b62-22c4ee2922e8",
+    "Name": "PC2",
+    "Definition": "---",
+    "Price": 200600,
+    "Image": "string"
+  },
+  "f1429dc8-5fd5-42c6-afb6-f221e4889aa7": {
+    "Id": "f1429dc8-5fd5-42c6-afb6-f221e4889aa7",
+    "Name": "phone4",
+    "Definition": "-----",
+    "Price": 0,
+    "Image": "string"
+  },
+  "04ee0270-64c2-4a96-a13a-fe08895705b2": {
+    "Id": "04ee0270-64c2-4a96-a13a-fe08895705b2",
+    "Name": "phone4",
+    "Definition": "string",
+    "Price": 0,
+    "Image": "string"
+  },
+  "0b836a83-1fb7-41ef-b0bf-5cd19a54a661": {
+    "Id": "0b836a83-1fb7-41ef-b0bf-5cd19a54a661",
+    "Name": "phone4",
+    "Definition": "-----",
+    "Price": 0,
+    "Image": "string"
+  },
+  "856341b8-ab9d-4e91-a14d-08c2bce61b87": {
+    "Id": "856341b8-ab9d-4e91-a14d-08c2bce61b87",
+    "Name": "Phone",
+    "Definition": "A76586",
+    "Price": 98687,
+    "Image": "---"
+  },
+  "35bb8d50-6592-4912-8cea-8af9fd26b4d1": {
+    "Id": "35bb8d50-6592-4912-8cea-8af9fd26b4d1",
+    "Name": "Phone",
+    "Definition": "A76586",
+    "Price": 98687,
+    "Image": "---"
+  },
+  "820d8784-3def-4c77-a14e-715205256e92": {
+    "Id": "820d8784-3def-4c77-a14e-715205256e92",
+    "Name": "Phone",
+    "Definition": "A76586",
+    "Price": 98687,
+    "Image": "---"
+  },
+  "51017e88-d366-4dfe-98ab-3bd57c9f8b66": {
+    "Id": "51017e88-d366-4dfe-98ab-3bd57c9f8b66",
+    "Name": "Phone",
+    "Definition": "A76586",
+    "Price": 98687,
+    "Image": "---"
+  },
+  "54490c0e-fb42-4ac3-a1bb-6c0d857cf7b7": {
+    "Id": "54490c0e-fb42-4ac3-a1bb-6c0d857cf7b7",
+    "Name": "Phone",
+    "Definition": "A76586",
+    "Price": 98687,
+    "Image": "---"
+  },
+  "fee8ec28-6df6-42ca-a509-ec16754a3af0": {
+    "Id": "fee8ec28-6df6-42ca-a509-ec16754a3af0",
+    "Name": "Phone",
+    "Definition": "A76586",
+    "Price": 98687,
+    "Image": "---"
+  },
+  "c4a1311a-7b68-482b-aa3b-9fd0dc176038": {
+    "Id": "c4a1311a-7b68-482b-aa3b-9fd0dc176038",
+    "Name": "Phone",
+    "Definition": "A76586",
+    "Price": 98687,
+    "Image": "---"
+  },
+  "f391545b-3e0c-4986-9515-fc59412642b7": {
+    "Id": "f391545b-3e0c-4986-9515-fc59412642b7",
+    "Name": "Phone",
+    "Definition": "A76586",
+    "Price": 98687,
+    "Image": "---"
+  },
+  "818c355e-0869-45ad-bd21-8efedb98872c": {
+    "Id": "818c355e-0869-45ad-bd21-8efedb98872c",
+    "Name": "Phone",
+    "Definition": "A76586",
+    "Price": 98687,
+    "Image": "---"
+  },
+  "49100e83-4f16-43d3-981b-8c6effdd942d": {
+    "Id": "49100e83-4f16-43d3-981b-8c6effdd942d",
+    "Name": "Phone",
+    "Definition": "A76586",
+    "Price": 98687,
+    "Image": "---"
+  },
+  "d795e2ba-6ef2-43d3-b138-9f82ef368189": {
+    "Id": "d795e2ba-6ef2-43d3-b138-9f82ef368189",
+    "Name": "Phone",
+    "Definition": "A76586",
+    "Price": 98687,
+    "Image": "---"
+  },
+  "ff51ade0-9cfb-4cc6-b3e9-d789262343f8": {
+    "Id": "ff51ade0-9cfb-4cc6-b3e9-d789262343f8",
+    "Name": "Phone",
+    "Definition": "A76586",
+    "Price": 98687,
+    "Image": "---"
+  },
+  "25047235-98ca-45cf-8d35-39b6dd1b3837": {
+    "Id": "25047235-98ca-45cf-8d35-39b6dd1b3837",
+    "Name": "Phone",
+    "Definition": "A76586",
+    "Price": 98687,
+    "Image": "---"
+  },
+  "4a24836e-f09c-4782-8e84-cd19082b6301": {
+    "Id": "4a24836e-f09c-4782-8e84-cd19082b6301",
+    "Name": "Phone",
+    "Definition": "A76586",
+    "Price": 98687,
+    "Image": "---"
+  }
+}

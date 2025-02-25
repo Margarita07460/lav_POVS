@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Margarita\\Desktop\\Новая папка\\Magazine.Core\\Magazine.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.Core\\Magazine.Core.csproj",
       "projectName": "Magazine.Core",
-      "projectPath": "C:\\Users\\Margarita\\Desktop\\Новая папка\\Magazine.Core\\Magazine.Core.csproj",
+      "projectPath": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.Core\\Magazine.Core.csproj",
       "packagesPath": "C:\\Users\\Margarita\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Margarita\\Desktop\\Новая папка\\Magazine.Core\\obj\\",
+      "outputPath": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

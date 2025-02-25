@@ -5,8 +5,23 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Magazine.Core.Services;
 using Magazine.WebApi.Services;
+using Magazine.Core.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.AddConsole();
+
+// Добавление CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder =>
+        {
+            builder.AllowAnyOrigin() // Разрешить запросы с любого origin
+                   .AllowAnyMethod() // Разрешить все HTTP-методы (GET, POST, PUT и т.д.)
+                   .AllowAnyHeader(); // Разрешить все заголовки
+        });
+});
+
 
 // Регистрация сервисов
 builder.Services.AddScoped<IProductService, ProductService>();
@@ -23,6 +38,9 @@ builder.Services.AddSwaggerGen(); // Генерирует Swagger-документацию
 
 var app = builder.Build();
 
+app.UseCors("AllowAllOrigins");
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -32,6 +50,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
 
 var summaries = new[]
 {

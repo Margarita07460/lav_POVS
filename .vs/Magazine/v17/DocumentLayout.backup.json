@@ -1,0 +1,119 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{08ACFECF-4477-4E99-9EF8-768D09C70C38}|Magazine.WebApi\\Magazine.WebApi.csproj|c:\\users\\margarita\\desktop\\new_povs\\lav_povs\\magazine.webapi\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08ACFECF-4477-4E99-9EF8-768D09C70C38}|Magazine.WebApi\\Magazine.WebApi.csproj|solutionrelative:magazine.webapi\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08ACFECF-4477-4E99-9EF8-768D09C70C38}|Magazine.WebApi\\Magazine.WebApi.csproj|c:\\users\\margarita\\desktop\\new_povs\\lav_povs\\magazine.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{08ACFECF-4477-4E99-9EF8-768D09C70C38}|Magazine.WebApi\\Magazine.WebApi.csproj|solutionrelative:magazine.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08ACFECF-4477-4E99-9EF8-768D09C70C38}|Magazine.WebApi\\Magazine.WebApi.csproj|c:\\users\\margarita\\desktop\\new_povs\\lav_povs\\magazine.webapi\\productcontroller\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08ACFECF-4477-4E99-9EF8-768D09C70C38}|Magazine.WebApi\\Magazine.WebApi.csproj|solutionrelative:magazine.webapi\\productcontroller\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{08ACFECF-4477-4E99-9EF8-768D09C70C38}|Magazine.WebApi\\Magazine.WebApi.csproj|c:\\users\\margarita\\desktop\\new_povs\\lav_povs\\magazine.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{08ACFECF-4477-4E99-9EF8-768D09C70C38}|Magazine.WebApi\\Magazine.WebApi.csproj|solutionrelative:magazine.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51B56E5E-C865-4B16-867C-E9439E555410}|Magazine.Core\\Magazine.Core.csproj|c:\\users\\margarita\\desktop\\new_povs\\lav_povs\\magazine.core\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51B56E5E-C865-4B16-867C-E9439E555410}|Magazine.Core\\Magazine.Core.csproj|solutionrelative:magazine.core\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51B56E5E-C865-4B16-867C-E9439E555410}|Magazine.Core\\Magazine.Core.csproj|c:\\users\\margarita\\desktop\\new_povs\\lav_povs\\magazine.core\\services\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51B56E5E-C865-4B16-867C-E9439E555410}|Magazine.Core\\Magazine.Core.csproj|solutionrelative:magazine.core\\services\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.WebApi\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "Magazine.WebApi\\Services\\ProductService.cs",
+              "ToolTip": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.WebApi\\Services\\ProductService.cs*",
+              "RelativeToolTip": "Magazine.WebApi\\Services\\ProductService.cs*",
+              "ViewState": "AgIAACYAAAAAAAAAAAAkwDcAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T19:26:59.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.WebApi\\appsettings.json",
+              "RelativeDocumentMoniker": "Magazine.WebApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.WebApi\\appsettings.json",
+              "RelativeToolTip": "Magazine.WebApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-25T19:22:26.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.WebApi\\ProductController\\ProductController.cs",
+              "RelativeDocumentMoniker": "Magazine.WebApi\\ProductController\\ProductController.cs",
+              "ToolTip": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.WebApi\\ProductController\\ProductController.cs",
+              "RelativeToolTip": "Magazine.WebApi\\ProductController\\ProductController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAzwCkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T19:17:15.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.WebApi\\Program.cs",
+              "RelativeDocumentMoniker": "Magazine.WebApi\\Program.cs",
+              "ToolTip": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.WebApi\\Program.cs",
+              "RelativeToolTip": "Magazine.WebApi\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T19:14:58.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.Core\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Magazine.Core\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.Core\\Models\\Product.cs",
+              "RelativeToolTip": "Magazine.Core\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T19:41:39.302Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IProductService.cs",
+              "DocumentMoniker": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.Core\\Services\\IProductService.cs",
+              "RelativeDocumentMoniker": "Magazine.Core\\Services\\IProductService.cs",
+              "ToolTip": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.Core\\Services\\IProductService.cs",
+              "RelativeToolTip": "Magazine.Core\\Services\\IProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-25T19:41:20.933Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

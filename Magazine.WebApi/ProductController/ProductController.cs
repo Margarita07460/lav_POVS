@@ -35,10 +35,10 @@ namespace Magazine.WebApi.Controllers
         }
 
         // Редактирование продукта
-        [HttpPut]
-        public async Task<IActionResult> Edit(Product product)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Edit(Guid id, Product product)
         {
-            var result = await _productService.Edit(product);
+            var result = await _productService.Edit(id, product);
             return Ok(result);
         }
 

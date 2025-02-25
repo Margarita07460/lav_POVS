@@ -11,7 +11,7 @@ namespace Magazine.Core.Services
     {
         Task<Product> Add(Product product);
         Task<Product?> Remove(Guid id);
-        Task<Product?> Edit(Product product);
+        Task<Product?> Edit(Guid id, Product product);
         Task<Product?> Search(Guid id);
     }
 }
