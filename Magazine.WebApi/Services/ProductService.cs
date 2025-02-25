@@ -1,33 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Magazine.Core.Models;
+﻿using Magazine.Core.Models;
 using Magazine.Core.Services;
 
 namespace Magazine.WebApi.Services
 {
     public class ProductService : IProductService
     {
-        private readonly List<Product> _products = new(); // Временное хранилище
+        private readonly List<Product> _products = new();
 
-        public Product Add(Product product)
+        public Task<Product> Add(Product product)
         {
             product.Id = Guid.NewGuid();
             _products.Add(product);
-            return product;
+            return Task.FromResult(product);
         }
 
-        public Product Remove(Guid id)
+        public Task<Product?> Remove(Guid id)
         {
             var product = _products.FirstOrDefault(p => p.Id == id);
             if (product != null)
             {
                 _products.Remove(product);
             }
-            return product;
+            return Task.FromResult(product);
         }
 
-        public Product Edit(Product product)
+        public Task<Product?> Edit(Product product)
         {
             var existingProduct = _products.FirstOrDefault(p => p.Id == product.Id);
             if (existingProduct != null)
@@ -37,12 +34,13 @@ namespace Magazine.WebApi.Services
                 existingProduct.Price = product.Price;
                 existingProduct.Image = product.Image;
             }
-            return existingProduct;
+            return Task.FromResult(existingProduct);
         }
 
-        public Product Search(Guid id)
+        public Task<Product?> Search(Guid id)
         {
-            return _products.FirstOrDefault(p => p.Id == id);
+            var product = _products.FirstOrDefault(p => p.Id == id);
+            return Task.FromResult(product);
         }
     }
 }
