@@ -1,0 +1,58 @@
+{
+  "02af9b02-fc5d-4c59-a1df-0539ccb18a25": {
+    "Id": "02af9b02-fc5d-4c59-a1df-0539ccb18a25",
+    "Name": "Test Product",
+    "Definition": "",
+    "Price": 100.0,
+    "Image": ""
+  },
+  "6294744d-07ce-48db-8f16-a52d68329836": {
+    "Id": "6294744d-07ce-48db-8f16-a52d68329836",
+    "Name": "Updated Product",
+    "Definition": "",
+    "Price": 200.0,
+    "Image": ""
+  },
+  "bc08ae1d-8d50-4d4a-8024-901a98681650": {
+    "Id": "bc08ae1d-8d50-4d4a-8024-901a98681650",
+    "Name": "Test Product",
+    "Definition": "",
+    "Price": 100.0,
+    "Image": ""
+  },
+  "503b99cf-8f3d-4f1b-aeab-c9bcd085121e": {
+    "Id": "503b99cf-8f3d-4f1b-aeab-c9bcd085121e",
+    "Name": "Test Product",
+    "Definition": "",
+    "Price": 100.0,
+    "Image": ""
+  },
+  "d696292e-ffd3-4cda-b58f-6441ea4bb624": {
+    "Id": "d696292e-ffd3-4cda-b58f-6441ea4bb624",
+    "Name": "Test Product",
+    "Definition": "",
+    "Price": 100.0,
+    "Image": ""
+  },
+  "fcf81baa-bb2a-4298-98d6-1bb29c56efd8": {
+    "Id": "fcf81baa-bb2a-4298-98d6-1bb29c56efd8",
+    "Name": "Updated Product",
+    "Definition": "",
+    "Price": 200.0,
+    "Image": ""
+  },
+  "919b34ab-4458-4df4-9ab3-d48f7308296d": {
+    "Id": "919b34ab-4458-4df4-9ab3-d48f7308296d",
+    "Name": "Test Product",
+    "Definition": "",
+    "Price": 100.0,
+    "Image": ""
+  },
+  "eca0995b-a2bc-4df1-8f25-cc687973f9ce": {
+    "Id": "eca0995b-a2bc-4df1-8f25-cc687973f9ce",
+    "Name": "Test Product",
+    "Definition": "",
+    "Price": 100.0,
+    "Image": ""
+  }
+}

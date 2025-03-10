@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magazine.Core", "Magazine.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magazine.WebApi", "Magazine.WebApi\Magazine.WebApi.csproj", "{08ACFECF-4477-4E99-9EF8-768D09C70C38}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magazine.Tests", "Magazine.Tests\Magazine.Tests.csproj", "{6A2D943E-7231-43F2-AD6E-79574A6D13E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,8 +43,23 @@ Global
 		{08ACFECF-4477-4E99-9EF8-768D09C70C38}.Release|x64.Build.0 = Release|Any CPU
 		{08ACFECF-4477-4E99-9EF8-768D09C70C38}.Release|x86.ActiveCfg = Release|Any CPU
 		{08ACFECF-4477-4E99-9EF8-768D09C70C38}.Release|x86.Build.0 = Release|Any CPU
+		{6A2D943E-7231-43F2-AD6E-79574A6D13E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A2D943E-7231-43F2-AD6E-79574A6D13E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A2D943E-7231-43F2-AD6E-79574A6D13E7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6A2D943E-7231-43F2-AD6E-79574A6D13E7}.Debug|x64.Build.0 = Debug|Any CPU
+		{6A2D943E-7231-43F2-AD6E-79574A6D13E7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6A2D943E-7231-43F2-AD6E-79574A6D13E7}.Debug|x86.Build.0 = Debug|Any CPU
+		{6A2D943E-7231-43F2-AD6E-79574A6D13E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A2D943E-7231-43F2-AD6E-79574A6D13E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A2D943E-7231-43F2-AD6E-79574A6D13E7}.Release|x64.ActiveCfg = Release|Any CPU
+		{6A2D943E-7231-43F2-AD6E-79574A6D13E7}.Release|x64.Build.0 = Release|Any CPU
+		{6A2D943E-7231-43F2-AD6E-79574A6D13E7}.Release|x86.ActiveCfg = Release|Any CPU
+		{6A2D943E-7231-43F2-AD6E-79574A6D13E7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25B6DF98-B7FF-4EB7-98F4-F27B92DA0BD4}
 	EndGlobalSection
 EndGlobal

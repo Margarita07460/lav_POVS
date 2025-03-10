@@ -301,3 +301,5 @@ C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.WebApi\obj\Debug\net9.0\re
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.WebApi\obj\Debug\net9.0\Magazine.WebApi.pdb
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.WebApi\obj\Debug\net9.0\Magazine.WebApi.genruntimeconfig.cache
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.WebApi\obj\Debug\net9.0\ref\Magazine.WebApi.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.WebApi\bin\Debug\net9.0\Castle.Core.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.WebApi\bin\Debug\net9.0\Moq.dll
