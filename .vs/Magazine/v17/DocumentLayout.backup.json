@@ -42,9 +42,9 @@
               "Title": "ProductService.cs",
               "DocumentMoniker": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.WebApi\\Services\\ProductService.cs",
               "RelativeDocumentMoniker": "Magazine.WebApi\\Services\\ProductService.cs",
-              "ToolTip": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.WebApi\\Services\\ProductService.cs*",
-              "RelativeToolTip": "Magazine.WebApi\\Services\\ProductService.cs*",
-              "ViewState": "AgIAACYAAAAAAAAAAAAkwDcAAAA0AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Margarita\\Desktop\\new_POVS\\lav_POVS\\Magazine.WebApi\\Services\\ProductService.cs",
+              "RelativeToolTip": "Magazine.WebApi\\Services\\ProductService.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAkwDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-25T19:26:59.262Z",
               "EditorCaption": ""
@@ -59,8 +59,7 @@
               "RelativeToolTip": "Magazine.WebApi\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-25T19:22:26.88Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-25T19:22:26.88Z"
             },
             {
               "$type": "Document",
@@ -72,8 +71,7 @@
               "RelativeToolTip": "Magazine.WebApi\\ProductController\\ProductController.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAzwCkAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T19:17:15.09Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-25T19:17:15.09Z"
             },
             {
               "$type": "Document",

@@ -1,17 +1,17 @@
 {
   "ca23849e-b570-497a-82b2-ad0fcc0e2f72": {
     "Id": "ca23849e-b570-497a-82b2-ad0fcc0e2f72",
-    "Name": "PC",
-    "Definition": "---",
-    "Price": 20000,
-    "Image": "string"
+    "Name": "",
+    "Definition": "",
+    "Price": 3535,
+    "Image": "----"
   },
   "c1c0acac-b947-4c91-9b62-22c4ee2922e8": {
     "Id": "c1c0acac-b947-4c91-9b62-22c4ee2922e8",
-    "Name": "PC2",
-    "Definition": "---",
-    "Price": 200600,
-    "Image": "string"
+    "Name": "",
+    "Definition": "hbfuahbvefuhb",
+    "Price": 24862,
+    "Image": "-----"
   },
   "f1429dc8-5fd5-42c6-afb6-f221e4889aa7": {
     "Id": "f1429dc8-5fd5-42c6-afb6-f221e4889aa7",
