@@ -31,7 +31,12 @@ namespace Magazine.WebApi.Controllers
         public async Task<IActionResult> Remove(Guid id)
         {
             var result = await _productService.Remove(id);
-            return Ok(result);
+            if (result == null)
+            {
+                return NotFound(); // Продукт не найден
+                //return -1;
+            }
+            return Ok(result); // Продукт успешно удален
         }
 
         // Редактирование продукта
@@ -47,7 +52,11 @@ namespace Magazine.WebApi.Controllers
         public async Task<IActionResult> Search(Guid id)
         {
             var result = await _productService.Search(id);
-            return Ok(result);
+            if (result == null)
+            {
+                return NotFound(); // Продукт не найден
+            }
+            return Ok(result); // Продукт найден
         }
     }
 }

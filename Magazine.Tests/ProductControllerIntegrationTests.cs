@@ -27,6 +27,13 @@ namespace Magazine.Tests
             // Настройка логгера
             var mockLogger = new Mock<ILogger<ProductService>>();
 
+            // Создаем пустой файл, если он не существует
+            if (!System.IO.File.Exists("test_database.txt"))
+            {
+                System.IO.File.WriteAllText("test_database.txt", "{}");
+            }
+
+
             // Создание реального сервиса
             _productService = new ProductService(mockConfiguration.Object, mockLogger.Object);
 
@@ -35,7 +42,7 @@ namespace Magazine.Tests
         }
 
         [Test]
-        public async Task AddProduct_ShouldReturnOkResult()
+        public async Task AddProduct_ShouldReturnCorrectProduct()
         {
             // Arrange
             var product = new Product { Name = "Test Product", Price = 100.0M };
@@ -51,7 +58,9 @@ namespace Magazine.Tests
 
             var returnedProduct = okResult.Value as Product;
             Assert.NotNull(returnedProduct);
-            Assert.AreEqual("Test Product", returnedProduct.Name);
+            Assert.AreEqual(product.Name, returnedProduct.Name);
+            Assert.AreEqual(product.Price, returnedProduct.Price);
+            Assert.AreNotEqual(Guid.Empty, returnedProduct.Id); // Проверка, что Id был присвоен
         }
 
         [Test]
@@ -119,5 +128,55 @@ namespace Magazine.Tests
             Assert.NotNull(foundProduct);
             Assert.AreEqual(addedProduct.Id, foundProduct.Id);
         }
+
+        [Test]
+        public async Task RemoveProduct_ShouldReturnNotFound_WhenProductDoesNotExist()
+        {
+            // Arrange
+            var nonExistentId = Guid.NewGuid();
+
+            // Act
+            var result = await _productController.Remove(nonExistentId);
+
+            // Assert
+            Assert.IsInstanceOf<NotFoundResult>(result);
+        }
+
+        [Test]
+        public async Task SearchProduct_ShouldReturnNotFound_WhenProductDoesNotExist()
+        {
+            // Arrange
+            var nonExistentId = Guid.NewGuid();
+
+            // Act
+            var result = await _productController.Search(nonExistentId);
+
+            // Assert
+            Assert.IsInstanceOf<NotFoundResult>(result);
+        }
+        [Test]
+        [TestCase("Product 1", 100.0)]
+        [TestCase("Product 2", 200.0)]
+        [TestCase("Product 3", 300.0)]
+        public async Task AddProduct_ShouldReturnCorrectProduct_ForDifferentInputs(string name, decimal price)
+        {
+            // Arrange
+            var product = new Product { Name = name, Price = price };
+
+            // Act
+            var result = await _productController.Add(product);
+
+            // Assert
+            Assert.IsInstanceOf<OkObjectResult>(result);
+
+            var okResult = result as OkObjectResult;
+            Assert.NotNull(okResult);
+
+            var returnedProduct = okResult.Value as Product;
+            Assert.NotNull(returnedProduct);
+            Assert.AreEqual(name, returnedProduct.Name);
+            Assert.AreEqual(price, returnedProduct.Price);
+        }
+
     }
 }

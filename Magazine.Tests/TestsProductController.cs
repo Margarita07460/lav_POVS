@@ -56,5 +56,57 @@ namespace Magazine.Tests
             // Assert
             Assert.IsInstanceOf<OkObjectResult>(result);
         }
+        [Test]
+        public async Task AddProduct_ReturnsCorrectProduct()
+        {
+            // Arrange
+            var product = new Product { Name = "Test Product", Price = 100.0M };
+            _mockProductService.Setup(service => service.Add(It.IsAny<Product>()))
+                .ReturnsAsync(product);
+
+            // Act
+            var result = await _productController.Add(product);
+
+            // Assert
+            Assert.IsInstanceOf<OkObjectResult>(result);
+
+            var okResult = result as OkObjectResult;
+            Assert.NotNull(okResult);
+
+            var returnedProduct = okResult.Value as Product;
+            Assert.NotNull(returnedProduct);
+            Assert.AreEqual(product.Name, returnedProduct.Name);
+            Assert.AreEqual(product.Price, returnedProduct.Price);
+        }
+        [Test]
+        public async Task EditProduct_ReturnsOkResult()
+        {
+            // Arrange
+            var productId = Guid.NewGuid();
+            var updatedProduct = new Product { Name = "Updated Product", Price = 200.0M };
+            _mockProductService.Setup(service => service.Edit(productId, It.IsAny<Product>()))
+                .ReturnsAsync(updatedProduct);
+
+            // Act
+            var result = await _productController.Edit(productId, updatedProduct);
+
+            // Assert
+            Assert.IsInstanceOf<OkObjectResult>(result);
+        }
+        [Test]
+        public async Task SearchProduct_ReturnsOkResult()
+        {
+            // Arrange
+            var productId = Guid.NewGuid();
+            var product = new Product { Id = productId, Name = "Test Product", Price = 100.0M };
+            _mockProductService.Setup(service => service.Search(productId))
+                .ReturnsAsync(product);
+
+            // Act
+            var result = await _productController.Search(productId);
+
+            // Assert
+            Assert.IsInstanceOf<OkObjectResult>(result);
+        }
     }
 }

@@ -124,8 +124,9 @@ namespace Magazine.WebApi.Services
             {
                 _products.Remove(id); // Удаляем из оперативной памяти
                 await Task.Run(() => WriteToFile()); // Сохраняем изменения на диск
+                return product; // Возвращаем удаленный продукт
             }
-            return product;
+            return null; // Продукт не найден
         }
 
         /// <summary>
@@ -154,10 +155,13 @@ namespace Magazine.WebApi.Services
         /// </summary>
         /// <param name="id">Идентификатор продукта.</param>
         /// <returns>Найденный продукт или null, если продукт не найден.</returns>
-        public Task<Product?> Search(Guid id)
+        public async Task<Product?> Search(Guid id)
         {
-            _products.TryGetValue(id, out var product);
-            return Task.FromResult(product);
+            if (_products.TryGetValue(id, out var product))
+            {
+                return product; // Продукт найден
+            }
+            return null; // Продукт не найден
         }
 
         public void PrintProducts()
