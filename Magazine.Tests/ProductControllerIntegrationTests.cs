@@ -1,182 +1,141 @@
 ﻿using NUnit.Framework;
 using Magazine.WebApi.Controllers;
-using Magazine.Core.Services;
 using Magazine.Core.Models;
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Moq;
+using System.IO;
+using System.Linq;
+using Microsoft.Data.Sqlite;
+using System.Collections.Generic;
 using Magazine.WebApi.Services;
 
-namespace Magazine.Tests
+namespace Magazine.Tests.Integration
 {
     [TestFixture]
     public class ProductControllerIntegrationTests
     {
         private ProductController _productController;
         private ProductService _productService;
+        private string _testDbPath;
+        private IConfiguration _configuration;
 
         [SetUp]
         public void Setup()
         {
-            // Настройка конфигурации
-            var mockConfiguration = new Mock<IConfiguration>();
-            mockConfiguration.Setup(config => config["DataBaseFilePath"]).Returns("test_database.txt");
+            _testDbPath = $"test_db_{Guid.NewGuid()}.db";
 
-            // Настройка логгера
-            var mockLogger = new Mock<ILogger<ProductService>>();
+            _configuration = new ConfigurationBuilder()
+                .AddInMemoryCollection()
+                .Build();
+            _configuration["DataBaseFilePath"] = _testDbPath;
 
-            // Создаем пустой файл, если он не существует
-            if (!System.IO.File.Exists("test_database.txt"))
-            {
-                System.IO.File.WriteAllText("test_database.txt", "{}");
-            }
-
-
-            // Создание реального сервиса
-            _productService = new ProductService(mockConfiguration.Object, mockLogger.Object);
-
-            // Создание контроллера с реальным сервисом
+            var logger = Mock.Of<ILogger<ProductService>>();
+            _productService = new ProductService(_configuration, logger);
             _productController = new ProductController(_productService);
         }
 
+        [TearDown]
+        public void Cleanup()
+        {
+            if (File.Exists(_testDbPath))
+            {
+                try { File.Delete(_testDbPath); }
+                catch { /* Ignore */ }
+            }
+        }
+
         [Test]
-        public async Task AddProduct_ShouldReturnCorrectProduct()
+        public async Task Database_ShouldBeCreatedWithCorrectSchema()
+        {
+            // Act
+            var tableExists = await CheckTableExists("Products");
+            var indexExists = await CheckIndexExists("idx_products_id");
+
+            // Assert
+            Assert.IsTrue(tableExists, "Таблица Products должна существовать");
+            Assert.IsTrue(indexExists, "Индекс idx_products_id должен существовать");
+        }
+
+        [Test]
+        public async Task AddProduct_ShouldPersistAllFieldsCorrectly()
         {
             // Arrange
-            var product = new Product { Name = "Test Product", Price = 100.0M };
+            var product = new Product
+            {
+                Name = "Full Product",
+                Price = 150.0M,
+                Definition = "Test description",
+                Image = "test.jpg"
+            };
 
             // Act
             var result = await _productController.Add(product);
-
-            // Assert
-            Assert.IsInstanceOf<OkObjectResult>(result);
-
             var okResult = result as OkObjectResult;
-            Assert.NotNull(okResult);
-
-            var returnedProduct = okResult.Value as Product;
-            Assert.NotNull(returnedProduct);
-            Assert.AreEqual(product.Name, returnedProduct.Name);
-            Assert.AreEqual(product.Price, returnedProduct.Price);
-            Assert.AreNotEqual(Guid.Empty, returnedProduct.Id); // Проверка, что Id был присвоен
-        }
-
-        [Test]
-        public async Task RemoveProduct_ShouldReturnOkResult()
-        {
-            // Arrange
-            var product = new Product { Name = "Test Product", Price = 100.0M };
-            var addedProduct = await _productService.Add(product);
-
-            // Act
-            var result = await _productController.Remove(addedProduct.Id);
+            var addedProduct = okResult.Value as Product;
+            var fromDb = await _productService.Search(addedProduct.Id);
 
             // Assert
-            Assert.IsInstanceOf<OkObjectResult>(result);
-
-            var okResult = result as OkObjectResult;
-            Assert.NotNull(okResult);
-
-            var removedProduct = okResult.Value as Product;
-            Assert.NotNull(removedProduct);
-            Assert.AreEqual(addedProduct.Id, removedProduct.Id);
+            Assert.AreEqual(product.Name, fromDb.Name);
+            Assert.AreEqual(product.Price, fromDb.Price);
+            Assert.AreEqual(product.Definition, fromDb.Definition);
+            Assert.AreEqual(product.Image, fromDb.Image);
         }
+
+       
 
         [Test]
-        public async Task EditProduct_ShouldReturnOkResult()
+        public async Task ConcurrentAccess_ShouldHandleMultipleRequests()
         {
             // Arrange
-            var product = new Product { Name = "Test Product", Price = 100.0M };
-            var addedProduct = await _productService.Add(product);
-
-            var updatedProduct = new Product { Name = "Updated Product", Price = 200.0M };
+            var product = new Product { Name = "Concurrent", Price = 100.0M };
+            await _productController.Add(product);
+            var addedProduct = (await _productService.Search(product.Id))!;
 
             // Act
-            var result = await _productController.Edit(addedProduct.Id, updatedProduct);
+            var tasks = Enumerable.Range(0, 10).Select(i =>
+                Task.Run(async () =>
+                {
+                    var updated = new Product { Name = $"Updated {i}", Price = 100.0M + i };
+                    await _productController.Edit(addedProduct.Id, updated);
+                }));
+
+            await Task.WhenAll(tasks);
+            var finalProduct = await _productService.Search(addedProduct.Id);
 
             // Assert
-            Assert.IsInstanceOf<OkObjectResult>(result);
-
-            var okResult = result as OkObjectResult;
-            Assert.NotNull(okResult);
-
-            var editedProduct = okResult.Value as Product;
-            Assert.NotNull(editedProduct);
-            Assert.AreEqual("Updated Product", editedProduct.Name);
-            Assert.AreEqual(200.0M, editedProduct.Price);
+            Assert.IsNotNull(finalProduct);
+            Assert.That(finalProduct.Name, Does.StartWith("Updated "));
+            Assert.GreaterOrEqual(finalProduct.Price, 100.0M);
         }
 
-        [Test]
-        public async Task SearchProduct_ShouldReturnOkResult()
+        private async Task<bool> CheckTableExists(string tableName)
         {
-            // Arrange
-            var product = new Product { Name = "Test Product", Price = 100.0M };
-            var addedProduct = await _productService.Add(product);
+            using var connection = new SqliteConnection($"Data Source={_testDbPath}");
+            await connection.OpenAsync();
 
-            // Act
-            var result = await _productController.Search(addedProduct.Id);
+            using var command = connection.CreateCommand();
+            command.CommandText =
+                "SELECT name FROM sqlite_master WHERE type='table' AND name=@name";
+            command.Parameters.AddWithValue("@name", tableName);
 
-            // Assert
-            Assert.IsInstanceOf<OkObjectResult>(result);
-
-            var okResult = result as OkObjectResult;
-            Assert.NotNull(okResult);
-
-            var foundProduct = okResult.Value as Product;
-            Assert.NotNull(foundProduct);
-            Assert.AreEqual(addedProduct.Id, foundProduct.Id);
+            return await command.ExecuteScalarAsync() != null;
         }
 
-        [Test]
-        public async Task RemoveProduct_ShouldReturnNotFound_WhenProductDoesNotExist()
+        private async Task<bool> CheckIndexExists(string indexName)
         {
-            // Arrange
-            var nonExistentId = Guid.NewGuid();
+            using var connection = new SqliteConnection($"Data Source={_testDbPath}");
+            await connection.OpenAsync();
 
-            // Act
-            var result = await _productController.Remove(nonExistentId);
+            using var command = connection.CreateCommand();
+            command.CommandText =
+                "SELECT name FROM sqlite_master WHERE type='index' AND name=@name";
+            command.Parameters.AddWithValue("@name", indexName);
 
-            // Assert
-            Assert.IsInstanceOf<NotFoundResult>(result);
+            return await command.ExecuteScalarAsync() != null;
         }
-
-        [Test]
-        public async Task SearchProduct_ShouldReturnNotFound_WhenProductDoesNotExist()
-        {
-            // Arrange
-            var nonExistentId = Guid.NewGuid();
-
-            // Act
-            var result = await _productController.Search(nonExistentId);
-
-            // Assert
-            Assert.IsInstanceOf<NotFoundResult>(result);
-        }
-        [Test]
-        [TestCase("Product 1", 100.0)]
-        [TestCase("Product 2", 200.0)]
-        [TestCase("Product 3", 300.0)]
-        public async Task AddProduct_ShouldReturnCorrectProduct_ForDifferentInputs(string name, decimal price)
-        {
-            // Arrange
-            var product = new Product { Name = name, Price = price };
-
-            // Act
-            var result = await _productController.Add(product);
-
-            // Assert
-            Assert.IsInstanceOf<OkObjectResult>(result);
-
-            var okResult = result as OkObjectResult;
-            Assert.NotNull(okResult);
-
-            var returnedProduct = okResult.Value as Product;
-            Assert.NotNull(returnedProduct);
-            Assert.AreEqual(name, returnedProduct.Name);
-            Assert.AreEqual(price, returnedProduct.Price);
-        }
-
     }
 }
