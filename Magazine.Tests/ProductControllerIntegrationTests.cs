@@ -85,7 +85,7 @@ namespace Magazine.Tests.Integration
             Assert.AreEqual(product.Image, fromDb.Image);
         }
 
-       
+
 
         [Test]
         public async Task ConcurrentAccess_ShouldHandleMultipleRequests()

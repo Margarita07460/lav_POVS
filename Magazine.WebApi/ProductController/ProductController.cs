@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using Magazine.Core.Models;
 using Magazine.Core.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace Magazine.WebApi.Controllers
 {
@@ -18,13 +19,14 @@ namespace Magazine.WebApi.Controllers
             _productService = productService;
         }
 
-        // Добавление продукта
-        [HttpPost]
+        //Добавление продукта
+       [HttpPost]
         public async Task<IActionResult> Add(Product product)
         {
             var result = await _productService.Add(product);
             return Ok(result);
         }
+
 
         // Удаление продукта
         [HttpDelete("{id}")]
@@ -60,3 +62,4 @@ namespace Magazine.WebApi.Controllers
         }
     }
 }
+

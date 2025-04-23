@@ -31,7 +31,16 @@ C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Mic
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Sqlite.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.OpenApi.dll
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.TestPlatform.CoreUtilities.dll
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Microsoft.TestPlatform.PlatformAbstractions.dll
@@ -50,6 +59,7 @@ C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\SQL
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\System.Text.Json.dll
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\cs\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
 C:\Users\Margarita\Desktop\new_POVS\lav_POVS\Magazine.Tests\bin\Debug\net9.0\de\Microsoft.TestPlatform.CoreUtilities.resources.dll
