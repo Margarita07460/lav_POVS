@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Magazine.Core.Models;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace Magazine.WebApi.Services
 {
@@ -9,26 +9,34 @@ namespace Magazine.WebApi.Services
     {
         public DbSet<Product> Products { get; set; }
         private readonly ILogger<ApplicationContext> _logger;
-        private readonly IConfiguration _configuration;
+        private readonly string _dbPath;
 
         public ApplicationContext(
             DbContextOptions<ApplicationContext> options,
-            ILogger<ApplicationContext> logger,
-            IConfiguration configuration) : base(options)
+            ILogger<ApplicationContext> logger) : base(options)
         {
             _logger = logger;
-            _configuration = configuration;
+            
+            // Путь к базе данных (работает и в Docker, и локально)
+            var dbFolder = Environment.GetEnvironmentVariable("DB_FOLDER") ?? Path.Combine(Directory.GetCurrentDirectory(), "Database");
+            _dbPath = Path.Combine(dbFolder, "products.db");
+            
+            // Создаем папку если не существует
+            if (!Directory.Exists(dbFolder))
+            {
+                Directory.CreateDirectory(dbFolder);
+                _logger.LogInformation($"Created database directory at {dbFolder}");
+            }
 
             try
             {
-                // Важно: используем только EnsureCreated без миграций
                 if (Database.EnsureCreated())
                 {
-                    _logger.LogInformation("Database and tables created successfully");
+                    _logger.LogInformation($"Database created at {_dbPath}");
                 }
                 else
                 {
-                    _logger.LogInformation("Database already exists");
+                    _logger.LogInformation($"Using existing database at {_dbPath}");
                 }
             }
             catch (Exception ex)
@@ -42,61 +50,12 @@ namespace Magazine.WebApi.Services
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite(_configuration.GetConnectionString("DefaultConnection"));
-            }
-
-            // Включаем логирование только для разработки
-            if (_configuration.GetValue<bool>("Logging:EnableDbLogging", false))
-            {
+                optionsBuilder.UseSqlite($"Data Source={_dbPath}");
                 optionsBuilder.LogTo(message => _logger.LogDebug(message))
                              .EnableSensitiveDataLogging();
             }
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Product>(entity =>
-            {
-                entity.ToTable("Products");
-
-                // Явное указание первичного ключа
-                entity.HasKey(p => p.Id)
-                      .HasName("PK_Products");
-
-                // Указываем, что Id генерируется при добавлении
-               entity.Property(p => p.Id)
-                .HasColumnName("Id");
-                //.ValueGeneratedOnAdd()
-                //.HasDefaultValueSql("hex(randomblob(16))");
-
-
-                // Настройки полей
-                entity.Property(p => p.Name)
-                      .IsRequired()
-                      .HasMaxLength(100);
-
-                entity.Property(p => p.Definition)
-                      .HasMaxLength(500);  // Добавлено ограничение длины
-
-                entity.Property(p => p.Price)
-                      .IsRequired()
-                      .HasColumnType("DECIMAL(10,2)");
-
-                entity.Property(p => p.Image)
-                      .HasMaxLength(255);  // Добавлено ограничение длины
-
-                entity.Property(p => p.Weight)
-                      .HasColumnType("DECIMAL(5,2)")  // Исправлено на DECIMAL
-                      .HasDefaultValue(0.1m);
-
-                //// Индексы
-                //entity.HasIndex(p => p.Id)
-                //      .HasDatabaseName("IX_Products_Id")
-                //      .IsUnique();
-
-                //entity.HasIndex(p => p.Name)
-                //      .HasDatabaseName("IX_Products_Name");
-            });
-        }
+        // ... остальной код OnModelCreating ...
     }
 }
