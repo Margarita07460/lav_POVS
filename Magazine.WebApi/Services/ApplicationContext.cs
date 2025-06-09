@@ -20,7 +20,7 @@ namespace Magazine.WebApi.Services
             // Определяем путь к базе данных
             var dbFolder = Environment.GetEnvironmentVariable("DB_FOLDER") ?? 
                           Path.Combine(Directory.GetCurrentDirectory(), "Database");
-            _dbPath = Path.Combine(dbFolder, "products.db");
+            _dbPath = "/app/Database/products.db";
             
             // Создаем папку если не существует
             if (!Directory.Exists(dbFolder))
@@ -31,15 +31,7 @@ namespace Magazine.WebApi.Services
 
             try
             {
-                if (Database.EnsureCreated())
-                {
-                    _logger.LogInformation($"SQLite database created at {_dbPath}");
-                    _logger.LogInformation($"Database schema created successfully");
-                }
-                else
-                {
-                    _logger.LogInformation($"Using existing database at {_dbPath}");
-                }
+                Database.Migrate(); 
             }
             catch (Exception ex)
             {
