@@ -17,8 +17,9 @@ namespace Magazine.WebApi.Services
         {
             _logger = logger;
             
-            // Путь к базе данных (работает и в Docker, и локально)
-            var dbFolder = Environment.GetEnvironmentVariable("DB_FOLDER") ?? Path.Combine(Directory.GetCurrentDirectory(), "Database");
+            // Определяем путь к базе данных
+            var dbFolder = Environment.GetEnvironmentVariable("DB_FOLDER") ?? 
+                          Path.Combine(Directory.GetCurrentDirectory(), "Database");
             _dbPath = Path.Combine(dbFolder, "products.db");
             
             // Создаем папку если не существует
@@ -32,7 +33,8 @@ namespace Magazine.WebApi.Services
             {
                 if (Database.EnsureCreated())
                 {
-                    _logger.LogInformation($"Database created at {_dbPath}");
+                    _logger.LogInformation($"SQLite database created at {_dbPath}");
+                    _logger.LogInformation($"Database schema created successfully");
                 }
                 else
                 {
@@ -51,11 +53,63 @@ namespace Magazine.WebApi.Services
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlite($"Data Source={_dbPath}");
+                
+                // Включаем подробное логирование для отладки
                 optionsBuilder.LogTo(message => _logger.LogDebug(message))
                              .EnableSensitiveDataLogging();
             }
         }
 
-        // ... остальной код OnModelCreating ...
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>(entity =>
+            {
+                entity.ToTable("Products");
+
+                // Конфигурация первичного ключа
+                entity.HasKey(p => p.Id)
+                      .HasName("PK_Products");
+
+                // Настройка генерации GUID
+                entity.Property(p => p.Id)
+                      .ValueGeneratedOnAdd()
+                      .HasDefaultValueSql("hex(randomblob(16))");
+
+                // Настройка остальных полей
+                entity.Property(p => p.Name)
+                      .IsRequired()
+                      .HasMaxLength(100);
+
+                entity.Property(p => p.Definition)
+                      .HasMaxLength(500);
+
+                entity.Property(p => p.Price)
+                      .IsRequired()
+                      .HasColumnType("DECIMAL(10,2)");
+
+                entity.Property(p => p.Image)
+                      .HasMaxLength(255);
+
+                entity.Property(p => p.Weight)
+                      .HasColumnType("DECIMAL(5,2)")
+                      .HasDefaultValue(0.1m);
+
+                entity.Property(p => p.Status)
+                      .HasDefaultValue("Available");
+            });
+        }
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await base.SaveChangesAsync(cancellationToken);
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, "Error saving changes to database");
+                throw;
+            }
+        }
     }
 }
