@@ -28,24 +28,6 @@ namespace Magazine.WebApi.Services
                 Directory.CreateDirectory(dbFolder);
                 _logger.LogInformation($"Created database directory at {dbFolder}");
             }
-
-            try
-            {
-                if (Database.EnsureCreated())
-                {
-                    _logger.LogInformation($"SQLite database created at {_dbPath}");
-                    _logger.LogInformation($"Database schema created successfully");
-                }
-                else
-                {
-                    _logger.LogInformation($"Using existing database at {_dbPath}");
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Database initialization failed");
-                throw;
-            }
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -56,26 +38,28 @@ namespace Magazine.WebApi.Services
                 
                 // Включаем подробное логирование для отладки
                 optionsBuilder.LogTo(message => _logger.LogDebug(message))
-                             .EnableSensitiveDataLogging();
+                             .EnableSensitiveDataLogging()
+                             .ConfigureWarnings(warnings => warnings
+                                 .Ignore(RelationalEventId.MultipleCollectionIncludeWarning)
+                             .EnableDetailedErrors();
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder); // Важно вызывать базовый метод
+
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.ToTable("Products");
 
-                // Конфигурация первичного ключа
                 entity.HasKey(p => p.Id)
                       .HasName("PK_Products");
 
-                // Настройка генерации GUID
                 entity.Property(p => p.Id)
                       .ValueGeneratedOnAdd()
                       .HasDefaultValueSql("hex(randomblob(16))");
 
-                // Настройка остальных полей
                 entity.Property(p => p.Name)
                       .IsRequired()
                       .HasMaxLength(100);
@@ -95,7 +79,9 @@ namespace Magazine.WebApi.Services
                       .HasDefaultValue(0.1m);
 
                 entity.Property(p => p.Status)
-                      .HasDefaultValue("Available");
+                      .HasMaxLength(50) // Добавлено ограничение длины
+                      .HasDefaultValue("Available")
+                      .IsRequired();
             });
         }
 
@@ -103,13 +89,20 @@ namespace Magazine.WebApi.Services
         {
             try
             {
-                return await base.SaveChangesAsync(cancellationToken);
+                var result = await base.SaveChangesAsync(cancellationToken);
+                _logger.LogInformation($"Saved {result} changes to database");
+                return result;
             }
             catch (DbUpdateException ex)
             {
                 _logger.LogError(ex, "Error saving changes to database");
+                throw new Exception("Database update error occurred", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error saving changes");
                 throw;
             }
         }
     }
-} 
+}
